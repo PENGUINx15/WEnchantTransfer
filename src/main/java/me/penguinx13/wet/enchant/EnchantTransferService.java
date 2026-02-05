@@ -13,6 +13,14 @@ public class EnchantTransferService {
     private static final Random RANDOM = new Random();
 
     public static ItemStack transfer(ItemStack sourceItem) {
+        return transfer(sourceItem, RANDOM);
+    }
+
+    public static ItemStack transfer(ItemStack sourceItem, long seed) {
+        return transfer(sourceItem, new Random(seed));
+    }
+
+    private static ItemStack transfer(ItemStack sourceItem, Random random) {
         ItemStack result = new ItemStack(Material.ENCHANTED_BOOK);
         EnchantmentStorageMeta meta =
                 (EnchantmentStorageMeta) result.getItemMeta();
@@ -25,9 +33,13 @@ public class EnchantTransferService {
 
             int chance = EnchantChanceCalculator.calculateChance(enchant, level);
 
-            if (RANDOM.nextInt(100) < chance) {
+            if (random.nextInt(100) < chance) {
                 meta.addStoredEnchant(enchant, level, true);
             }
+        }
+
+        if (meta.getStoredEnchants().isEmpty()) {
+            return null;
         }
 
         result.setItemMeta(meta);
