@@ -1,0 +1,4 @@
+name: WEnchantTransfer
+version: '1.0.0'
+main: me.penguinx13.wEnchantTransfer.WEnchantTransfer
+api-version: '1.20'
