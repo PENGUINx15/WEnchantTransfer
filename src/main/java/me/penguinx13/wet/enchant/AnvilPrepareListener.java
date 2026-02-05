@@ -16,7 +16,7 @@ public class AnvilPrepareListener implements Listener {
         ItemStack right = e.getInventory().getSecondItem();
 
         if (left == null || right == null) return;
-        if (!TransferBookUtil.isTransferBook(right)) return;
+        if (TransferBookUtil.isTransferBook(right)) return;
         if (left.getEnchantments().isEmpty()) return;
 
         long seed = buildSeed(left, right);

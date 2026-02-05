@@ -19,7 +19,7 @@ public final class WEnchantTransfer extends JavaPlugin {
                 new AnvilPrepareListener(), this
         );
         getServer().getPluginManager().registerEvents(
-                new AnvilClickListener(), this
+                new AnvilClickListener(this), this
         );
     }
 

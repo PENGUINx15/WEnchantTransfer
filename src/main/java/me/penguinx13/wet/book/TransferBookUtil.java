@@ -10,8 +10,8 @@ import org.bukkit.persistence.PersistentDataType;
 public class TransferBookUtil {
 
     public static boolean isTransferBook(ItemStack item) {
-        if (item == null || item.getType() != Material.BOOK) return false;
-        if (!item.hasItemMeta()) return false;
+        if (item == null || item.getType() != Material.BOOK) return true;
+        if (!item.hasItemMeta()) return true;
 
         ItemMeta meta = item.getItemMeta();
         NamespacedKey key = new NamespacedKey(
@@ -19,7 +19,7 @@ public class TransferBookUtil {
                 TransferBookFactory.KEY
         );
 
-        return meta.getPersistentDataContainer().has(
+        return !meta.getPersistentDataContainer().has(
                 key, PersistentDataType.BYTE
         );
     }

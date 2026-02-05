@@ -1,5 +1,6 @@
 package me.penguinx13.wet.listener;
 
+import me.penguinx13.wet.WEnchantTransfer;
 import me.penguinx13.wet.book.TransferBookUtil;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -9,7 +10,11 @@ import org.bukkit.inventory.ItemStack;
 
 public class AnvilClickListener implements Listener {
 
-    public AnvilClickListener() {}
+    private final WEnchantTransfer plugin;
+
+    public AnvilClickListener(WEnchantTransfer plugin) {
+        this.plugin = plugin;
+    }
 
     @EventHandler
     public void onClick(InventoryClickEvent e) {
@@ -21,9 +26,12 @@ public class AnvilClickListener implements Listener {
         ItemStack result = e.getCurrentItem();
 
         if (left == null || right == null || result == null) return;
-        if (!TransferBookUtil.isTransferBook(right)) return;
+        if (TransferBookUtil.isTransferBook(right)) return;
 
-        inv.setFirstItem(null);   // уничтожаем предмет
-        inv.setSecondItem(null);  // уничтожаем книгу
+
+        plugin.getServer().getScheduler().runTask(plugin, () -> {
+            inv.setFirstItem(null);
+            inv.setSecondItem(null);
+        });
     }
 }
