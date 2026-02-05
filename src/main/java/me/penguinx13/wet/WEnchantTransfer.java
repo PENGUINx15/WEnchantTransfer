@@ -16,10 +16,10 @@ public final class WEnchantTransfer extends JavaPlugin {
         new TransferBookRecipe(this).register();
 
         getServer().getPluginManager().registerEvents(
-                new AnvilPrepareListener(this), this
+                new AnvilPrepareListener(), this
         );
         getServer().getPluginManager().registerEvents(
-                new AnvilClickListener(this), this
+                new AnvilClickListener(), this
         );
     }
 

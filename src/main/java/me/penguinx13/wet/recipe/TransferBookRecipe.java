@@ -21,10 +21,10 @@ public class TransferBookRecipe {
                 TransferBookFactory.create()
         );
 
-        recipe.shape("AEA", "ABA", "AAA");
+        recipe.shape(" A ", " B ", " A ");
         recipe.setIngredient('A', Material.AMETHYST_SHARD);
-        recipe.setIngredient('E', Material.ECHO_SHARD);
         recipe.setIngredient('B', Material.BOOK);
+
 
         Bukkit.addRecipe(recipe);
     }

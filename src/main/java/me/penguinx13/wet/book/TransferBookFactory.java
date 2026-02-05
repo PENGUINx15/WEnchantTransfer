@@ -1,6 +1,7 @@
 package me.penguinx13.wet.book;
 
 import me.penguinx13.wet.WEnchantTransfer;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -17,11 +18,11 @@ public class TransferBookFactory {
         ItemStack book = new ItemStack(Material.BOOK);
         ItemMeta meta = book.getItemMeta();
 
-        meta.setDisplayName("§bКнига извлечения чар");
-        meta.setLore(List.of(
-                "§7Извлекает зачарования",
-                "§7с предмета с шансом.",
-                "§cПредмет будет уничтожен"
+        meta.displayName(Component.text("§bКнига переноса"));
+        meta.lore(List.of(
+                Component.text("§7Переносит зачарования"),
+                Component.text("§7с предмета с определенным шансом."),
+                Component.text("§cПредмет будет уничтожен")
         ));
 
         meta.setCustomModelData(1001);
