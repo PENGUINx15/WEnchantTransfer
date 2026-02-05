@@ -15,7 +15,7 @@ public class TransferBookFactory {
     public static final String KEY = "transfer_book";
 
     public static ItemStack create() {
-        ItemStack book = new ItemStack(Material.BOOK);
+        ItemStack book = new ItemStack(Material.KNOWLEDGE_BOOK);
         ItemMeta meta = book.getItemMeta();
 
         meta.displayName(Component.text("§bКнига переноса"));
