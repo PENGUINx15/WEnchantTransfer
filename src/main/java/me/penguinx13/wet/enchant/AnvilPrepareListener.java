@@ -5,11 +5,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.PrepareAnvilEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class AnvilPrepareListener implements Listener {
 
-    public AnvilPrepareListener(JavaPlugin plugin) {}
+    public AnvilPrepareListener() {}
 
     @EventHandler
     public void onPrepare(PrepareAnvilEvent e) {
